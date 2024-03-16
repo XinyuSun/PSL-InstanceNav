@@ -1,0 +1,8 @@
+ifcfg
+tensorboard
+grad-cam
+nltk
+einops
+open_clip_torch
+setuptools==59.5.0
+git+https://github.com/openai/CLIP.git
