@@ -11,7 +11,7 @@ CUDA_VISIBLE_DEVICES=0 MAGNUM_LOG=quiet HABITAT_SIM_LOG=quiet python run.py \
     TASK_CONFIG.DATASET.DATA_PATH data/datasets/objectnav/objectnav_hm3d_v1/val/val.json.gz \
     TASK_CONFIG.TASK.POSSIBLE_ACTIONS "['STOP','MOVE_FORWARD','TURN_LEFT','TURN_RIGHT','LOOK_DOWN','LOOK_UP']" \
     TASK_CONFIG.SIMULATOR.ACTION_SPACE_CONFIG v1 \
-    TASK_CONFIG.TASK.QUERIED_IMAGE_GOAL_SENSOR.DATA_PATH data/goal_datasets/objectnav/val.queried_image_goal.imagenav_v2.pth \
+    TASK_CONFIG.TASK.QUERIED_IMAGE_GOAL_SENSOR.DATA_PATH data/goal_datasets/objectnav/hm3d_objectnav.imagenav_v2.pth \
     RL.REWARD_MEASURE distance_to_goal \
     RL.POLICY.use_clip_obs_encoder True \
     RL.POLICY.use_layout_encoder True \

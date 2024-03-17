@@ -197,7 +197,7 @@ class ZSONPolicyNet(Net):
         if self.use_layout_encoder:
             self.layout_encoder, self.layout_transform, layout_size = get_visual_encoder(
                 backbone="resnet50", baseplanes=baseplanes, 
-                pretrained_encoder="data/models/omnidata_DINO_02.pth", use_data_aug=use_data_aug,
+                pretrained_encoder=pretrained_encoder, use_data_aug=use_data_aug,
                 run_type=run_type,
             )
             # visual encoder mlp

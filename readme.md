@@ -1,7 +1,7 @@
 # Prioritized Semantic Learning for Zero-shot Instance Navigation
 
 <!-- Anomoys Authors -->
-Xander Sun<sup>1</sup>, Lec Liu, Hoyard Zhi, Ronghe Qiu<sup>1</sup>, and [Junwei Liang<sup>1</sup>](https://junweiliang.me/)
+Xander Sun<sup>1</sup>, Louis Law, Hoyard Zhi, Ronghe Qiu<sup>1</sup>, and [Junwei Liang<sup>1</sup>](https://junweiliang.me/)
 
 [<sup>1</sup> AI Thrust, The Hong Kong University of Science and Technology (Guangzhou)](https://ait.hkust-gz.edu.cn/)
 
@@ -51,8 +51,7 @@ All the required data can be downloaded from [here](https://huggingface.co/gunja
 1. Create a conda environment:
    ```
    conda create -n psl python=3.7 cmake=3.14.0
-   ```
-   ```
+
    conda activate psl
    ```
 
@@ -67,19 +66,16 @@ All the required data can be downloaded from [here](https://huggingface.co/gunja
    ```
 
 1. Install habitat-lab:
-   ```
+   ```bash
    git clone --branch challenge-2022 https://github.com/facebookresearch/habitat-lab.git habitat-lab-challenge-2022
-   ```
-   ```
+
    cd habitat-lab-challenge-2022
-   ```
-   ```
+
    pip install -r requirements.txt
-   ```
-   ```
-   python setup.py develop --all # install habitat and habitat_baselines
-   ```
-   ```
+
+   # install habitat and habitat_baselines
+   python setup.py develop --all 
+
    cd ..
    ```
 
@@ -87,29 +83,56 @@ All the required data can be downloaded from [here](https://huggingface.co/gunja
 ### Install PSL:
 1. Setup steps
    ```
-   cd PSL
-   ```
-   ```
    pip install -r requirements.txt
-   ```
-   ```
+
    python setup.py develop
    ```
 
-1. Follow the instructions [here](https://github.com/facebookresearch/habitat-sim/blob/main/DATASETS.md) to set up the `data/scene_datasets/` directory. `gibson` scenes can be found [here](http://gibsonenv.stanford.edu/database/).
+2. Follow the instructions [here](https://github.com/facebookresearch/habitat-sim/blob/main/DATASETS.md) to set up the `data/scene_datasets/` directory. `gibson` scenes can be found [here](http://gibsonenv.stanford.edu/database/).
 
-2. Download the HM3D objectnav dataset from ZSON.
-   ```
+3. Download the HM3D objectnav dataset from ZSON.
+   ```bash
    wget https://dl.fbaipublicfiles.com/habitat/data/datasets/objectnav/hm3d/v1/objectnav_hm3d_v1.zip
-   ```
-   ```
-   unzip objectnav_hm3d_v1.zip -d data/datasets/objectnav/
-   ```
-   ```
-   rm objectnav_hm3d_v1.zip  # clean-up
-   ```
-3. Download the trained checkpoints [PSL_Instancenav.pth](https://drive.google.com/file/d/1fYGxVuDpBQ7CBUVOiHJNH5yA6M1KLFbV/view?usp=drive_link), and move to `data/models`.
 
+   unzip objectnav_hm3d_v1.zip -d data/datasets/objectnav/
+
+   # clean-up
+   rm objectnav_hm3d_v1.zip
+   ```
+
+4. Download the HM3D instance navigation dataset.
+   ```bash
+   # download the original Instance Image Navigation dataset
+   wget https://dl.fbaipublicfiles.com/habitat/data/datasets/imagenav/hm3d/v3/instance_imagenav_hm3d_v3.zip
+
+   unzip instance_imagenav_hm3d_v3.zip -d data/datasets/
+
+   # clean-up
+   rm instance_imagenav_hm3d_v3.zip
+
+   mkdir -p data/datasets/instancenav/val
+
+   # download the attribute descriptions
+   wget --no-check-certificate "https://drive.google.com/uc?export=download&id=1KNdv6isX1FDZi4KCVPiECYDxijg9cZ3L" -O data/datasets/instancenav/val/val_text.json.gz
+
+   export PROJECT_ROOT=`pwd`
+   cd data/datasets/instancenav/val/
+   ln -s $PROJECT_ROOT/data/datasets/instance_imagenav_hm3d_v3/val/content .
+   cd $PROJECT_ROOT
+   ```
+
+5. Download the trained checkpoints [PSL_Instancenav.pth](https://drive.google.com/file/d/1fYGxVuDpBQ7CBUVOiHJNH5yA6M1KLFbV/view?usp=sharing), and move to `data/models`.
+
+
+6. Download the retrieved goal embeddings [hm3d_objectnav.imagenav_v2.pth](https://drive.google.com/file/d/1spyyqfsSfhHL8pp5DG6aBZjozNny4IQd/view?usp=drive_link) and [hm3d_instancenav.imagenav_v2.pth](https://drive.google.com/file/d/1UhA132XoQB0-4sflfBeBl-0uTt4RtidG/view?usp=sharing)
+   ```bash
+   mkdir -p data/goal_datasets/objectnav data/goal_datasets/instancenav
+
+   # download retrieved goal embeddings
+   wget --no-check-certificate "https://drive.google.com/uc?export=download&id=1spyyqfsSfhHL8pp5DG6aBZjozNny4IQd" -O data/goal_datasets/objectnav/hm3d_objectnav.imagenav_v2.pth
+
+   wget --no-check-certificate "https://drive.google.com/uc?export=download&id=1UhA132XoQB0-4sflfBeBl-0uTt4RtidG" -O data/goal_datasets/instancenav/hm3d_instancenav.imagenav_v2.pth
+   ```
 
 <!-- 1. To train policies using OVRL pretrained RGB encoder, download the model weights from [here](https://huggingface.co/gunjan050/ZSON/resolve/main/omnidata_DINO_02.pth) and move to `data/models/`.
 More details on the encoder can be found [here](https://arxiv.org/pdf/2204.13226.pdf). -->

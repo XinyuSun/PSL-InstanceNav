@@ -1,3 +1,4 @@
+tqdm
 ifcfg
 tensorboard
 grad-cam
