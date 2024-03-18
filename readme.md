@@ -1,9 +1,10 @@
 # Prioritized Semantic Learning for Zero-shot Instance Navigation
 
 <!-- Anomoys Authors -->
-Xander Sun<sup>1</sup>, Louis Law, Hoyard Zhi, Ronghe Qiu<sup>1</sup>, and [Junwei Liang<sup>1</sup>](https://junweiliang.me/)
+<!-- Xander Sun<sup>1</sup>, Louis Law, Hoyard Zhi, Ronghe Qiu<sup>1</sup>, and [Junwei Liang<sup>1</sup>](https://junweiliang.me/) -->
 
-[<sup>1</sup> AI Thrust, The Hong Kong University of Science and Technology (Guangzhou)](https://ait.hkust-gz.edu.cn/)
+<!-- [<sup>1</sup> AI Thrust, The Hong Kong University of Science and Technology (Guangzhou)](https://ait.hkust-gz.edu.cn/) -->
+Anonymous Authors
 
 ## Overview
 We present PSL, a zero-shot approach for learning instance level navigation skill. The agent is tasked with a language goal to find a specified object in current scene, for example, *a chair made of black leather and is located near two windows.*
