@@ -1,7 +1,9 @@
 # Prioritized Semantic Learning for Zero-shot Instance Navigation
 
+**ECCV 2024 paper**
+
 <!-- Anomoys Authors -->
-Xander Sun<sup>1</sup>, Louis Law, Hoyard Zhi, Ronghe Qiu<sup>1</sup>, and [Junwei Liang<sup>1</sup>](https://junweiliang.me/)
+Xinyu Sun<sup>1</sup>, Lizhao Liu, Hongyan Zhi, Ronghe Qiu<sup>1</sup>, and [Junwei Liang<sup>1</sup>](https://junweiliang.me/)
 
 [<sup>1</sup> AI Thrust, The Hong Kong University of Science and Technology (Guangzhou)](https://ait.hkust-gz.edu.cn/)
 
