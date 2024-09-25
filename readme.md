@@ -1,4 +1,4 @@
-# Prioritized Semantic Learning for Zero-shot Instance Navigation
+# [Prioritized Semantic Learning for Zero-shot Instance Navigation](https://arxiv.org/abs/2403.11650)
 
 **ECCV 2024 paper**
 
